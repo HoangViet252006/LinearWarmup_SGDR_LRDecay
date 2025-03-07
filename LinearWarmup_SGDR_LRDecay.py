@@ -53,7 +53,7 @@ class CosineAnnealingWarmRestartsModified(CosineAnnealingWarmRestarts):
 
 
 class CombinedWarmupCosineScheduler(_LRScheduler):
-    def __init__(self, optimizer, warmup_epochs, max_lr, T_0, T_mult=1, eta_min=0, step_per_epoch=0, gamma=0.9):
+    def __init__(self, optimizer, warmup_epochs, max_lr=0.1, T_0=10, T_mult=1, eta_min=0, step_per_epoch=0, gamma=0.9):
         self.warmup_steps = warmup_epochs * step_per_epoch
         self.current_step = 0
         self.warmup_scheduler = WarmupThenConstantLR(
