@@ -18,7 +18,7 @@ class WarmupThenConstantLR(_LRScheduler):
         max_warmup_stage = self.warmup_steps // self.step_per_epoch
 
         if warmup_stage < max_warmup_stage:
-            current_lr = self.max_lr * (warmup_stage + 1) / max_warmup_stage
+            current_lr = self.max_lr * warmup_stage / max_warmup_stage
         else:
             current_lr = self.max_lr
 
